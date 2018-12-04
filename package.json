@@ -16,13 +16,15 @@
     "build": "tsc --project tsconfig.prod.json",
     "test": "react-scripts-ts test --env=jsdom",
     "lint": "./node_modules/.bin/tslint -c tslint.json --project tsconfig.json",
-    "prepare": "yarn test && yarn build"
+    "copy-component-css": "cpx \"./src/components/**/*.css\" ./build/lib/components",
+    "prepare": "yarn test && yarn build && yarn copy-css-to-lib"
   },
   "devDependencies": {
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.10",
     "@types/react": "^16.7.10",
     "@types/react-dom": "^16.0.11",
+    "cpx": "^1.5.0",
     "typescript": "^3.2.1"
   },
   "files": [
