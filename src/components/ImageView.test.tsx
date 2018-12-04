@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './App';
+import ImageView from './ImageView';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<ImageView smallImage={'http://xxxx'} largeImage={'sdsds'}/>, div);
   ReactDOM.unmountComponentAtNode(div);
 });

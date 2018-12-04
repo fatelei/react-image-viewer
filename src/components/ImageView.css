@@ -1,0 +1,73 @@
+.imageview-disappear {
+  display: none;
+}
+
+.imageview-appear {
+  display: block;
+}
+
+.imageview-close-icon {
+  color: #fff;
+  font-size: 50px;
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  z-index: 101;
+}
+
+.imageview-close-icon:after {
+  content: '\d7';
+}
+
+.imageview-close-icon:hover
+.imageview-close-icon:focus {
+  cursor: hand;
+  color: red;
+}
+
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+
+.imageview-modal {
+  position: fixed;
+  z-index: 20;
+  padding-top: 2px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+  animation-name: zoom;
+  animation-duration: 0.2s;
+  overflow-x: auto;
+}
+
+.imageview-operation {
+  background-color: #f1f5f5;
+  width: 500px;
+  margin: auto;
+  padding: 10px 10px;
+  border-radius: 10px;
+  z-index: 200;
+  position: relative;
+  opacity: 0.5;
+}
+
+.imageview-operation span {
+  margin-left: 15px;
+}
+
+.small-image {
+  max-width: 30%;
+}
