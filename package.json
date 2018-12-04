@@ -1,7 +1,6 @@
 {
   "name": "react-image-viewer",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
@@ -11,11 +10,13 @@
     "react-dom": "^16.6.3",
     "react-scripts-ts": "^4.0.8"
   },
+  "main": "build/lib/index.js",
+  "types": "build/lib/index.d.ts",
   "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
+    "build": "tsc --project tsconfig.prod.json",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "lint": "./node_modules/.bin/tslint -c tslint.json --project tsconfig.json",
+    "prepare": "yarn test && yarn build"
   },
   "devDependencies": {
     "@types/jest": "^23.3.10",
@@ -24,6 +25,11 @@
     "@types/react-dom": "^16.0.11",
     "typescript": "^3.2.1"
   },
+  "files": [
+    "build/lib",
+    "LICENSE",
+    "README.md"
+  ],
   "browserslist": [
     ">0.2%",
     "not dead",
