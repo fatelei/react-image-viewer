@@ -53,6 +53,19 @@
   overflow-x: auto;
 }
 
+.imageview-modal-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 50%;
+}
+
+.imageview-modal-content img {
+  max-width: 50%;
+}
+
 .imageview-operation {
   background-color: #f1f5f5;
   width: 500px;
@@ -60,8 +73,23 @@
   padding: 10px 10px;
   border-radius: 10px;
   z-index: 200;
-  position: relative;
+  position: fixed;
   opacity: 0.5;
+  left: 50%;
+  top: 10px;
+  transform: translate(-50%);
+}
+
+#zoom-in:hover {
+  cursor: zoom-in;
+}
+
+#zoom-out:hover {
+  cursor: zoom-out;
+}
+
+#rotate:hover {
+  cursor: auto;
 }
 
 .imageview-operation span {

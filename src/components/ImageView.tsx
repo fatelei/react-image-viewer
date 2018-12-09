@@ -29,8 +29,7 @@ class ImageViewer extends React.Component<ImageViewerProps, ImageViewerState> {
    */
   private zoomConfig : number[] = [
     0.2, 0.4, 0.6, 0.8, 1,
-    1.2, 1.4, 1.6, 1.8, 2,
-    3, 4, 5, 6, 7, 8
+    1.2, 1.4, 1.6, 1.8, 2
   ]
 
   /**
@@ -52,6 +51,14 @@ class ImageViewer extends React.Component<ImageViewerProps, ImageViewerState> {
     };
   }
 
+  public componentDidMount() {
+    window.addEventListener('keydown', this.onKeydown)
+  }
+
+  public componentWillUnmount() {
+    window.removeEventListener('keydown', this.onKeydown)
+  }
+
   public render() {
     const { imageViewerClass, smallImage } = this.props
 
@@ -67,6 +74,12 @@ class ImageViewer extends React.Component<ImageViewerProps, ImageViewerState> {
     )
   }
 
+  private onKeydown = (e: any) :void => {
+    if (e.key === 'Escape' && this.state.showModal) {
+      this.hideImageModal()
+    }
+  }
+
   private showImageModal = () :void => {
     this.setState({ showModal: true });
   }
@@ -75,7 +88,7 @@ class ImageViewer extends React.Component<ImageViewerProps, ImageViewerState> {
     this.setState({ showModal: false });
   }
 
-  private zoomOut = (e: any) :void => {
+  private zoomIn = (e: any) :void => {
     e.stopPropagation()
     let zoomCursor = this.state.zoomCursor;
     if (zoomCursor < this.zoomConfig.length - 1) {
@@ -84,7 +97,7 @@ class ImageViewer extends React.Component<ImageViewerProps, ImageViewerState> {
     }
   }
 
-  private zoomIn = (e: any) :void => {
+  private zoomOut = (e: any) :void => {
     e.stopPropagation()
     let zoomCursor = this.state.zoomCursor;
     if (zoomCursor > 0) {
@@ -127,9 +140,9 @@ class ImageViewer extends React.Component<ImageViewerProps, ImageViewerState> {
           </figure>
         </div>
         <div className='imageview-operation'>
-          <span onClick={this.zoomOut}><FontAwesomeIcon icon={faSearchPlus}/></span>
-          <span onClick={this.zoomIn}><FontAwesomeIcon icon={faSearchMinus}/></span>
-          <span onClick={this.rotate}><FontAwesomeIcon icon={faSyncAlt}/></span>
+          <span onClick={this.zoomIn} id='zoom-in'><FontAwesomeIcon icon={faSearchPlus}/></span>
+          <span onClick={this.zoomOut} id='zoom-out'><FontAwesomeIcon icon={faSearchMinus}/></span>
+          <span onClick={this.rotate} id='rotate'><FontAwesomeIcon icon={faSyncAlt}/></span>
         </div>
       </div>
     )
