@@ -1,6 +1,7 @@
 {
-  "name": "image-viewer",
+  "name": "@fatelei/react-image-iewer",
   "version": "0.1.0",
+  "description": "React image viewer support zoom & rotate",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
